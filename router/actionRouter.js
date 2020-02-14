@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const Actions = require('../data/helpers/actionModel');
-const Projects = require('../data/helpers/projectModel')
 
-router.post('/', validateProjectId, (req, res) => {
+
+router.post('/', (req, res) => {
   Actions.insert(req.body)
     .then(newAction => {
       res.status(201).json(newAction);
@@ -63,14 +63,6 @@ router.put('/:id', (req, res) => {
       res.status(500).json({errorMessage: "The action information could not be modified."})
   });
 });
-function validateProjectId(req, res, next){
-    const id = req.body.project_id
-   Projects.get(id)
-    .then(exists =>{
-        !exists && res.status(400).json({message: "validateProjectID Project does not exist"})
-    })
-    next();
-  }
 
 
 module.exports = router;
