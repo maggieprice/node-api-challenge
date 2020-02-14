@@ -15,7 +15,7 @@ server.get('/', (req, res) => {
 });
 
 server.use('/api/projects', projectRouter);
-server.use('/api/actions', logger, actionRouter);
+server.use('/api/actions', actionRouter);
 //custom middleware
 
 function logger(req, res, next) {
