@@ -43,8 +43,8 @@ router.get('/:id',  (req, res) => {
   });
 
   router.get('/:projectId', (req, res) => {
-    Posts.getProjectActions(req.params.project_id).then(posts => {
-        res.status(200).json(posts)
+    Projects.getProjectActions(req.params.project_id).then(pActions => {
+        res.status(200).json(pActions)
     })
     .catch(error => {
         console.log(error);
