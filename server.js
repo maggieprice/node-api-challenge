@@ -1,10 +1,15 @@
 
 const express = require('express');
+
 const actionRouter = require("./data/helpers/actionModel");
+const projectRouter = require("./data/helpers/projectModel");
+
 const server = express();
+
 server.use(express.json());
 server.use(logger);
-server.use('/api/actions', actionRouter);
+
+
 server.get('/', (req, res) => {
   res.json(`Node Sprint Challenge 1`);
 });
