@@ -1,8 +1,8 @@
 
 const express = require('express');
 
-const actionRouter = require("./data/helpers/actionModel");
-const projectRouter = require("./data/helpers/projectModel");
+const actionRouter = require("./router/actionRouter");
+const projectRouter = require("./router/projectRouter");
 
 const server = express();
 
@@ -14,6 +14,8 @@ server.get('/', (req, res) => {
   res.json(`Node Sprint Challenge 1`);
 });
 
+server.use('/api/projects', projectRouter);
+server.use('/api/actions', logger, actionRouter);
 //custom middleware
 
 function logger(req, res, next) {

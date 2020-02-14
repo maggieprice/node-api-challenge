@@ -2,8 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Projects = require('../data/helpers/projectModel');
 
-
-router.post('/', changes, (req, res) => {
+router.post('/', (req, res) => {
   Projects.insert(req.body)
     .then(projects => {
       res.status(201).json(projects);
@@ -42,8 +41,8 @@ router.get('/:id',  (req, res) => {
     });
   });
 
-  router.get('/:projectId', (req, res) => {
-    Projects.getProjectActions(req.params.project_id).then(pActions => {
+  router.get('/:id', (req, res) => {
+    Projects.getProjectActions(req.params.id).then(pActions => {
         res.status(200).json(pActions)
     })
     .catch(error => {
