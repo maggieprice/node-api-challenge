@@ -40,18 +40,23 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [X] Mention two parts of Express that you learned about this week.
     -Express adds extra functionality, like routing and middleware support, and a simpler API to a raw http server module. 
-    
+
     -With express, you can build web applications and serve Single Page Applications.
 
 
-- [ ] Describe Middleware?
+- [X] Describe Middleware?
+    -Middleware functions can get the request and response objects, operate on them, and (when specified) trigger some action. Examples are logging or security. Express’ middleware stack is basically an array of functions. Middleware CAN change the request or response but it doesn’t have to.
 
-- [ ] Describe a Resource?
+- [X] Describe a Resource?
+    -A resource is what is returned from the api. Everything is a resource. Each resource is accessible via a unique URI. Resources can have multiple representations. Communication happens over a stateless protocol (HTTP). Resource management happens via HTTP methods.
 
-- [ ] What can the API return to help clients know if a request was successful?
 
-- [ ] How can we partition our application into sub-applications?
+- [X] What can the API return to help clients know if a request was successful?
+    -A status code of 200.
 
+- [X] How can we partition our application into sub-applications?
+    -By using express routers. An Express Router behaves like a mini Express application. It can have it’s own Routing and Middleware, but it needs to exist inside of an Express application. Think of routers as organizing Express applications because you write separate pieces that can later be composed together.
+    
 ## Minimum Viable Product
 
 - [ ] Configure an _npm script_ named _"server"_ that will execute your code using _nodemon_. Make _nodemon_ be a development time dependency only, it shouldn't be deployed to production.
