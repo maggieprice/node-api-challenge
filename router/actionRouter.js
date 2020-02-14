@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const Actions = require('../data/helpers/actionModel');
-// const Projects = require('../data/helpers/projectModel');
 
-router.post('/', (req, res) => {
+
+router.post('/', changes, (req, res) => {
   Actions.insert(req.body)
-    .then(user => {
-      res.status(201).json(user);
+    .then(actions => {
+      res.status(201).json(actions);
     })
     .catch(error => {
       console.log(error);
@@ -18,8 +18,8 @@ router.post('/', (req, res) => {
 
 router.get('/', (req, res) => {
   Actions.get()
-  .then(users => {
-    res.status(200).json(users);
+  .then(actions => {
+    res.status(200).json(actions);
   })
   .catch(error => {
     console.log(error);
@@ -31,8 +31,8 @@ router.get('/', (req, res) => {
 
 router.get('/:id',  (req, res) => {
  Actions.get(req.params.id)
-  .then(user => {
-      res.status(200).json(user);
+  .then(action => {
+      res.status(200).json(action);
     }) 
     .catch(error => {
       console.log(error);
@@ -44,8 +44,8 @@ router.get('/:id',  (req, res) => {
 
 router.delete('/:id', (req, res) => {
  Actions.remove(req.params.id)
-    .then(user => {
-    res.status(200).json(user)
+    .then(action => {
+    res.status(200).json(action)
   })
   .catch(error => {
     console.log(error);
@@ -55,8 +55,8 @@ router.delete('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
    Actions.update(req.params.id, req.body)
-      .then(user => {
-      res.status(200).json(user)
+      .then(action => {
+      res.status(200).json(action)
       })
   .catch(error => {
     console.log(error);
